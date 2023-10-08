@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/asset/cardback.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/monogram.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Flip.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_color = Color( 0.145098, 0.133333, 0.133333, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+outline_size = 3
+outline_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="cardback" parent="." instance=ExtResource( 1 )]
+position = Vector2( 301, 339 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 10.0
+margin_right = 115.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Couple Game"
+
+[node name="flipButton" type="Button" parent="."]
+margin_left = 212.0
+margin_top = 532.0
+margin_right = 390.0
+margin_bottom = 608.0
+custom_fonts/font = SubResource( 2 )
+text = "Flip"
+script = ExtResource( 3 )
+
+[node name="flipTimer" type="Timer" parent="flipButton"]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+
+[node name="questions" type="Label" parent="flipButton"]
+margin_top = -309.0
+margin_right = 178.0
+margin_bottom = -65.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="timeout" from="flipButton/flipTimer" to="flipButton" method="_on_flipTimer_timeout"]
