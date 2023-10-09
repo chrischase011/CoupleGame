@@ -60,10 +60,11 @@ custom_fonts/font = SubResource( 3 )
 text = "Exit Game"
 
 [node name="VersionInfo" type="Label" parent="CanvasLayer"]
-margin_left = 8.0
-margin_top = 770.0
-margin_right = 205.0
-margin_bottom = 811.0
+margin_left = 142.0
+margin_top = 780.0
+margin_right = 485.0
+margin_bottom = 821.0
+rect_pivot_offset = Vector2( 1629, -216 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 valign = 1
