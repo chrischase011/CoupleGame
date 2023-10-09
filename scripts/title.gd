@@ -16,6 +16,8 @@ func _ready():
 	else:
 		$CanvasLayer/ExitButton.visible = false
 	
+	$CanvasLayer/VersionInfo.text = "v1.2 | Made by Christopher Robin Chase"
+	
 	$heartSpawnTimer.start()
 	randomize()
 	
