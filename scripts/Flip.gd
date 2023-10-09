@@ -7,11 +7,6 @@ extends Button
 
 var cardback
 
-var questions = ["Who made the first move?", "When did you first know you were in love with your partner?",
-		"Who is more jealous, you or your partner?", "Who controls the finances in your relationship?", "Who initiates sex more often, you or your partner?", 
-		"Who is more likely to get emotional during an argument?", "Who is more of a social butterfly, you or your partner?", 
-		"Who takes the longest to get ready in the morning?", "Who is more likely to say “I love you”?", "Who is the better cook?"]
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var parent = get_parent()
@@ -28,11 +23,11 @@ func _ready():
 
 func get_random_question():
 	# Generate a random index within the range of the questions array
-	var randomIndex:int = randi() % questions.size()
+	var randomIndex:int = randi() % Global.questions.size()
 	
 	print(randomIndex)
 	# Access the question at the random index
-	return questions[randomIndex]
+	return Global.questions[randomIndex]
 	
 
 		

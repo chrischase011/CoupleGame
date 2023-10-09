@@ -8,6 +8,14 @@ var heart = preload("res://assets/heart.png")
 var spawned_heart = []
 
 func _ready():
+	
+	var platform = OS.get_name()
+	
+	if platform == "Android" || platform == "IOS":
+		$CanvasLayer/ExitButton.visible = true
+	else:
+		$CanvasLayer/ExitButton.visible = false
+	
 	$heartSpawnTimer.start()
 	randomize()
 	
@@ -69,3 +77,7 @@ func _on_StartButton_pressed():
 	Global.scene = "res://scenes/main.tscn"
 	get_tree().change_scene(Global.loading_scene)
 	print("Change scene")
+
+
+func _on_ExitButton_pressed():
+	get_tree().quit()
